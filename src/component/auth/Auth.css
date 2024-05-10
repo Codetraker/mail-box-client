@@ -1,0 +1,24 @@
+.btnSubmit{
+    background-color: #836FFF;
+    font-weight: bold;
+    color: white;
+    border:1px solid #836FFF ;
+    padding: 1%;
+    width: 60%;
+    justify-self: center;
+    /* border-radius: 1vh; */
+}
+.btnSubmit:hover{
+    /* background-color: #15F5BA; */
+    background-color: white;
+    color: #0a9c75;
+    border:1px solid #0a9c75 ;
+}
+.link{
+    font-size: small;
+    color: #0a9c75;
+}
+.link:hover{
+    color: #836FFF;
+    text-decoration: underline;
+}

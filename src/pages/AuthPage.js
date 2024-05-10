@@ -2,7 +2,9 @@ import AuthComponent from "../component/auth/AuthComponent";
 
 const AuthPage = () =>{
     return (
-        <AuthComponent />
+        <>
+            <AuthComponent />
+        </>
     );
 };
 export default AuthPage;
