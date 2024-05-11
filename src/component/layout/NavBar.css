@@ -1,0 +1,10 @@
+.nav{
+    background-image:linear-gradient(to right, #836FFF , #15F5BA);
+}
+.brandName{
+    font-weight: bold;
+    font-size: x-large;
+}
+.logoutBtn{
+    font-weight: bolder;
+}
