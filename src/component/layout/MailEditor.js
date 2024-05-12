@@ -5,17 +5,8 @@ const MailEditor = () =>{
     return (
         <>
         <div>
-        <Editor
-          editorState={editorState}
-          wrapperClassName="demo-wrapper"
-          editorClassName="demo-editor"
-          onEditorStateChange={this.onEditorStateChange}
-        />
-        <textarea
-          disabled
-          value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
-        />
-      </div>
+          <h1>Mail</h1>
+        </div>
         </>
     );
 }

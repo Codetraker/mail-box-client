@@ -8,3 +8,15 @@
 .logoutBtn{
     font-weight: bolder;
 }
+.searchBar{
+    display: flex;
+    flex: .7;
+    border-radius: 1vh;
+    border: 1px solid #00ffbb;
+}
+.searchBar input{
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    flex:1;
+}
