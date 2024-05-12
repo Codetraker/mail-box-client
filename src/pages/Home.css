@@ -1,0 +1,22 @@
+.layout_with_slidebar{
+    display: grid;
+    grid-template-columns: 15vw 82vw 3vw;
+    position: fixed;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+}
+.layout_without_slidebar{
+    display: grid;
+    grid-template-columns: 4vw 93vw 3vw;
+    position: fixed;
+    min-height: 100vh !important;
+}
+.left_layout{
+    /* background-color: rgb(178, 255, 255); */
+}
+.middle_layout{
+    
+}
+.right_layout{
+    
+}

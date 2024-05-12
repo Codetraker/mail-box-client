@@ -1,0 +1,18 @@
+.sidebar{
+   display: flex;
+   flex-direction: column;
+}
+.composeBtn{
+    padding: 1vw 2vw !important; 
+    border-radius: 2vh!important;
+    margin-top: 2vh !important;
+    margin-bottom: 2vh !important;
+    margin-left: 1vh !important;
+    max-width: 25vh !important;
+    background-image:linear-gradient(to right, #826fff6c , #15f5b96c) !important;
+    text-transform: none !important;
+    font-size: medium !important;
+}
+.composeBtn:hover{
+    box-shadow: .2em .2em .2em rgba(89, 89, 89, 0.35) !important;
+}
