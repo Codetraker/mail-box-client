@@ -1,8 +1,17 @@
 import './SidebarOption.css';
 
-const SidebarOption = (props) => {
+const SidebarOption = ({title, Icon, number, active, onExpand}) => {
+    let yes = false;
+    if(active===true){
+        yes=true;
+    }
+    
   return (
-    <div>SidebarOption</div>
+    <div className={yes? "sidebarOption actived":"sidebarOption"} onClick={onExpand}>
+        <Icon/>
+        <label className='optionTitle'>{title}</label>
+        <label className='optionNumber'>{number}</label>
+    </div>
   )
 };
 export default SidebarOption;

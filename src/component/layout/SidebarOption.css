@@ -1,0 +1,42 @@
+.sidebarOption{
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-left: 1vh;
+    margin-right: 2vh;
+}
+.sidebarOption svg{
+    font-size: medium;
+    margin-left: .5vw;
+    width: 1.5vw;
+    justify-self: start;
+}
+.optionTitle{
+    font-size: medium;
+    
+    width: 9vw;
+    margin-left: .3vw;
+    padding-left: .1vw;
+}
+.optionNumber{
+    font-size: small;
+}
+.sidebarOption:hover{
+    background-color: #15f5b920;
+    color: #0f9974;
+}
+.sidebarOption:active{
+    background-color: #826fff3f;
+    font-weight: bold;
+}
+.actived{
+    background-color: #826fff3f;
+    font-weight: bold;
+    color: #0f9974;
+}
+.actived:hover{
+    background-color: #826fff50;
+    font-weight: bold;
+}

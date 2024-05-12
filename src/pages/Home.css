@@ -12,11 +12,11 @@
     min-height: 100vh !important;
 }
 .left_layout{
-    /* background-color: rgb(178, 255, 255); */
+    background-color: transparent;
 }
 .middle_layout{
-    
+    background-color: transparent;
 }
 .right_layout{
-    
+    background-color: transparent;
 }
