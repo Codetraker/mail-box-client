@@ -15,8 +15,29 @@
     background-color: transparent;
 }
 .middle_layout{
-    background-color: transparent;
+    /* background-color: greenyellow; */
+    display: grid;
+    grid-template-rows: 7% 93%;
 }
 .right_layout{
     background-color: transparent;
+}
+
+.layout_without_slidebar .middle_layout{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.mailAreaTopBar{
+    /* background-color: aqua; */
+}
+.mailArea{
+    /* background-color: blue; */
+}
+.mailSectionArea{
+    height: 7vh;
+    /* height: 50px; */
+    display: flex;
+}
+.mailInbox{
+    /* background-color: rgb(196, 253, 234); */
 }

@@ -1,6 +1,6 @@
 import './SidebarOption.css';
 
-const SidebarOption = ({title, Icon, number, active, onExpand}) => {
+const SidebarOption = ({title, Icon, number, active, onExpand, sideExtent}) => {
     let yes = false;
     if(active===true){
         yes=true;
@@ -9,8 +9,8 @@ const SidebarOption = ({title, Icon, number, active, onExpand}) => {
   return (
     <div className={yes? "sidebarOption actived":"sidebarOption"} onClick={onExpand}>
         <Icon/>
-        <label className='optionTitle'>{title}</label>
-        <label className='optionNumber'>{number}</label>
+        {sideExtent && <label className='optionTitle'>{title}</label>}
+        {sideExtent && <label className='optionNumber'>{number}</label>}
     </div>
   )
 };

@@ -1,0 +1,26 @@
+.main{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    position: sticky;
+    border-bottom: 1px solid rgb(237, 237, 237);
+}
+.left{
+    display: flex;
+    align-items: center;
+    height: 7vh;
+    margin-left: 1vh;
+}
+.right{
+    display: flex;
+    align-items: center;
+    height: 7vh;
+    justify-content: end;
+    padding-right: 3vh;
+}
+.right p{
+    font-size: small;
+    padding-top: 2vh;
+}
+.main svg{
+    font-size: medium;
+}

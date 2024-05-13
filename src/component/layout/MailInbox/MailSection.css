@@ -1,0 +1,29 @@
+.box{
+    /* width: 251px; */
+    width: 16.5vw;
+    display: flex;
+    align-items: center;
+}
+.active{
+    color: #0f9974;
+    border-bottom: .4vh solid #0f9974;
+}
+.active .text{
+    color: #0f9974;
+}
+.box svg{
+    font-size: 2.5vh;
+}
+.icon{
+    padding: 1.8vh;
+}
+.text{
+    font-size: .875rem;
+    font-weight: 500;
+    color: rgb(109, 109, 109);
+    padding-top: .5vh;
+    padding-left: 1vh;
+}
+.box:hover{
+    background-color: rgb(240, 240, 240);
+}

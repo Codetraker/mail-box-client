@@ -7,24 +7,21 @@ import TuneIcon from '@mui/icons-material/Tune';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AppsIcon from '@mui/icons-material/Apps';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { IconButton, Avatar } from '@mui/material';
-import { orange, red } from '@mui/material/colors';
+import { red } from '@mui/material/colors';
 
 
-const NavBar = () =>{
-    const [isLogIn, setIsLogIn] = useState(true);
-
-
+const NavBar = (props) =>{
+    
     return (
         <>
            <Navbar className="nav shadow" data-bs-theme="dark">
             <IconButton className='ms-3'>
-                <ReorderIcon sx={{ fontSize: 25 }} style={{color:'white'}}/>
+                <ReorderIcon sx={{ fontSize: 25 }} style={{color:'white'}} onClick={props.onDisplaySide}/>
             </IconButton>
                 <Container>
                     <Navbar.Brand className='brandName'>MailBox.com</Navbar.Brand>
-                    <Container className='ms-5'>
+                    <Container className='ms-5 pe-0'>
                         <Row>
                             <Col sm={9}>
                                 <Nav className="me-auto">

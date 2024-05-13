@@ -13,6 +13,17 @@
     text-transform: none !important;
     font-size: medium !important;
 }
-.composeBtn:hover{
+.composeBtn:hover , .composeBtn_small:hover{
     box-shadow: .2em .2em .2em rgba(89, 89, 89, 0.35) !important;
+}
+
+.composeBtn_small{
+    background-image:linear-gradient(to right, #826fff6c , #15f5b96c) !important;
+    padding: 1vw 2vw !important;
+    border-radius: 2vh!important;
+    margin-top: 2vh !important;
+    margin-bottom: 2vh !important;
+    margin-left: 0vh !important;
+    font-size: small !important;
+    color: #1976d2 !important;
 }
