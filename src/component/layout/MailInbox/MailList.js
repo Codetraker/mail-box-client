@@ -4,21 +4,21 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 
-const MailList = () => {
+const MailList = (props) => {
   return (
     <div className='emailListBody'>
 
       <div className='emailListBody_left'>
         <IconButton><CheckBoxOutlineBlankIcon/></IconButton>
         <IconButton><StarBorderIcon/></IconButton>
-        <p><b>IBM Careers</b></p>
+        <p><b>{props.name}</b></p>
       </div>
 
       <div className='emailListBody_middle'>
-        <p><b>Subject - </b>This is message body</p>
+          <p><b>{props.subject} - </b>{props.message}</p>
       </div>
       <div className='emailListBody_right'>
-        <p>2:27PM May 14</p>
+        <p>{props.time}</p>
       </div>
     </div>
   )

@@ -9,6 +9,7 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import MailList from "../component/layout/MailInbox/MailList";
 import MailSection from "../component/layout/MailInbox/MailSection";
+import Compose from "../component/layout/WriteMail/Compose";
 
 const Home = () =>{
     const [displaySidebar, setDisplaySidebar] = useState(true);
@@ -19,6 +20,7 @@ const Home = () =>{
     return (
         <>
             <NavBar onDisplaySide={sidebarDisplayHandler}/>
+            
             <div className={displaySidebar?"layout_with_slidebar":"layout_without_slidebar"}>
                 <Col className="left_layout">
                     <SideBar sidebarView={displaySidebar}/>
@@ -34,18 +36,15 @@ const Home = () =>{
                             <MailSection Icon={PeopleAltOutlinedIcon} text="Social"/>
                         </div>
                         <div className="mailInbox">
-                            <MailList />
-                            <MailList />
-                            <MailList />
-                            <MailList />
-                            <MailList />
-                            <MailList />
-                            <MailList />
+                            <MailList name="IBM Careers" subject="Review your CV" message="This is a demo related to CV" time="10:07AM 14 May"/>
+                            
                         </div>
                     </div>
                 </Col>
                 <Col className="right_layout">Right</Col>
             </div>
+
+            <Compose />
         </>
     );
 }
