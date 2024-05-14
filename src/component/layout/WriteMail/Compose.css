@@ -22,6 +22,18 @@
     background-color: #fff;
     overflow: hidden;
 }
+.compose_maximize{
+    position: fixed;
+    /* min-height: 73vh; */
+    min-width: 60vw;
+    border-radius: 1.5vh;
+    box-shadow: -1px 1px 20px rgba(0, 0, 0, 0.451);
+    background-color: #fff;
+    overflow: hidden;
+    z-index: 100;
+    top: 12vh;
+    left: 19vw;
+}
 .header{
     display: flex;
     justify-content: space-between;
@@ -101,4 +113,15 @@
 }
 .footer svg:hover{
     color: #000000;
+}
+
+
+.backDrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
 }
