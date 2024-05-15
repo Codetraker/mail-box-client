@@ -10,8 +10,11 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import MailList from "../component/layout/MailInbox/MailList";
 import MailSection from "../component/layout/MailInbox/MailSection";
 import Compose from "../component/layout/WriteMail/Compose";
+import { useSelector } from "react-redux";
+import { composerDisplayAction } from "../store/composerDisplaySlice";
 
 const Home = () =>{
+    const isVisible = useSelector((state)=>state.composerVisible.composerIsVisible);
     const [displaySidebar, setDisplaySidebar] = useState(true);
 
     const sidebarDisplayHandler = () =>{
@@ -44,7 +47,7 @@ const Home = () =>{
                 <Col className="right_layout">Right</Col>
             </div>
 
-            <Compose />
+            {isVisible && <Compose />}
         </>
     );
 }

@@ -17,18 +17,25 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { composerDisplayAction } from '../../../store/composerDisplaySlice';
 
 const SideBar = (props) => {
+  const dispatch = useDispatch();
   const [expand, setExpand] = useState(false);
   let sidebarSize = props.sidebarView;
   
   const expandHandler = () =>{
     setExpand(!expand);
   }
+  const composeOpenHandler = () =>{
+    dispatch(composerDisplayAction.openComposer());
+  };
+
   return (
     <div className="sidebar"> 
-        {sidebarSize && <Button startIcon={<CreateIcon/>} className='composeBtn'>Compose</Button>}
-        {!sidebarSize && <IconButton className='composeBtn_small'><CreateIcon/></IconButton>}
+        {sidebarSize && <Button startIcon={<CreateIcon/>} className='composeBtn' onClick={composeOpenHandler}>Compose</Button>}
+        {!sidebarSize && <IconButton className='composeBtn_small' onClick={composeOpenHandler}><CreateIcon/></IconButton>}
         <div>
           <SidebarOption title='Inbox' Icon={InboxIcon} number='14' active={true} sideExtent={sidebarSize}/>
           <SidebarOption title='Starred' Icon={StarOutlineIcon} sideExtent={sidebarSize}/>
