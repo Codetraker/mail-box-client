@@ -1,0 +1,83 @@
+.detailMain{
+    display: flex;
+    align-items: center;
+    position: sticky;
+    border-bottom: 1px solid rgb(237, 237, 237);
+    margin-left: 1vh;
+    height: 7vh;
+    padding-top: 2vh;
+}
+.detailMain svg{
+    font-size: medium;
+}
+.email_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+.email_header_left{
+    display: flex;
+    align-items: center;
+    gap: .5vw;
+}
+.email_header_left h3{
+    padding-left: 4vw;
+    font-weight: 400;
+    font-size: 1.8vw;
+}
+.email_header_right{
+    display: flex;
+    align-items: center;
+    gap: .5vw;
+}
+.email_header_right svg{
+    font-size: 2.5vh;
+}
+.senderInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
+.senderInfo_left{
+    display: flex;
+    align-items: center;
+    gap: .5vw;
+}
+.senderInfo_left svg{
+    font-size: 5vh;
+}
+.senderInfo_left label{
+    font-weight: bold;
+    font-size: large;
+}
+.senderInfo_left span{
+    font-size: small;
+    padding-left: .5vw;
+}
+.senderInfo_right{
+    display: flex;
+    align-items: center;
+}
+.senderInfo_right span{
+    font-size: small;
+    padding-right: 2vw;
+}
+
+.senderInfo_right svg{
+    font-size: 2.5vh;
+}
+.detailbody{
+    padding-top: 1vh;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    font-size: small;
+}
+.boxSenderInfo{
+    border-bottom: 2px solid rgb(241, 241, 241);
+}

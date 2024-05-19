@@ -7,17 +7,23 @@ import TuneIcon from '@mui/icons-material/Tune';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AppsIcon from '@mui/icons-material/Apps';
-import { IconButton, Avatar } from '@mui/material';
-import { red } from '@mui/material/colors';
+import { IconButton } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { sidebarDisplayAction } from '../../../store/sidebarDisplaySlice';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 
 const NavBar = (props) =>{
+    const dispatch = useDispatch();
+    const sidebarDisplayHandler = () =>{
+        dispatch(sidebarDisplayAction.changeSidebarDisplay());
+    }
     
     return (
         <>
            <Navbar className="nav shadow" data-bs-theme="dark">
             <IconButton className='ms-3'>
-                <ReorderIcon sx={{ fontSize: 25 }} style={{color:'white'}} onClick={props.onDisplaySide}/>
+                <ReorderIcon sx={{ fontSize: 25 }} style={{color:'white'}} onClick={sidebarDisplayHandler}/>
             </IconButton>
                 <Container>
                     <Navbar.Brand className='brandName'>MailBox.com</Navbar.Brand>
@@ -37,7 +43,7 @@ const NavBar = (props) =>{
                                     <IconButton><HelpOutlineIcon style={{color:'white'}}/></IconButton>
                                     <IconButton><SettingsIcon style={{color:'white'}}/></IconButton>
                                     <IconButton><AppsIcon style={{color:'white'}}/></IconButton>
-                                    <Avatar src='' sx={{ bgcolor: red[500], width: 28, height: 28}}>S</Avatar>
+                                    <IconButton><AccountCircleOutlinedIcon style={{color:'white'}}/></IconButton>
                                 </div>
                             </Col>
                         </Row>

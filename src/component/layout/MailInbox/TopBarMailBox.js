@@ -7,6 +7,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardIcon from '@mui/icons-material/Keyboard';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const TopBarMailBox = () => {
   return (
@@ -16,12 +17,9 @@ const TopBarMailBox = () => {
                 <CheckBoxOutlineBlankIcon />
                 <ArrowDropDownIcon />
             </IconButton>
-            <IconButton>
-                <RefreshIcon />
-            </IconButton>
-            <IconButton>
-                <MoreVertIcon />
-            </IconButton> 
+            <IconButton><RefreshIcon /></IconButton>
+            <IconButton><DeleteOutlineIcon /></IconButton>
+            <IconButton><MoreVertIcon /></IconButton> 
         </div>
         <div className='right'>
             <p>1-50 of 13,171</p>

@@ -15,11 +15,8 @@ import { db } from "../firebase";
 
 const Home = () =>{
     const isVisible = useSelector((state)=>state.composerVisible.composerIsVisible);
-    const [displaySidebar, setDisplaySidebar] = useState(true);
+    const displaySidebar = useSelector((state) => state.sidebarVisible.sidebarIsVisible);
 
-    const sidebarDisplayHandler = () =>{
-        setDisplaySidebar(!displaySidebar);
-    };
     const [emails, setEmails] = useState([]);
     useEffect(()=>{
         db.collection("emails").orderBy("timestamp","desc").onSnapshot(snapshot=>{
@@ -32,11 +29,11 @@ const Home = () =>{
     console.log(emails);
     return (
         <>
-            <NavBar onDisplaySide={sidebarDisplayHandler}/>
+            <NavBar />
             
             <div className={displaySidebar?"layout_with_slidebar":"layout_without_slidebar"}>
                 <Col className="left_layout">
-                    <SideBar sidebarView={displaySidebar}/>
+                    <SideBar />
                 </Col>
                 <Col className="middle_layout">
                     <div className="mailAreaTopBar">
@@ -51,7 +48,7 @@ const Home = () =>{
                         <div className="mailInbox">
                             {
                                 emails.map(({id,data})=>{
-                                    return <MailList key={id} name={data.to} subject={data.subject} message={data.message} time={new Date(data.timestamp?.seconds*1000).toLocaleTimeString()}/>
+                                    return <MailList key={id} name={data.displayName} subject={data.subject} message={data.message} time={new Date(data.timestamp?.seconds*1000).toLocaleTimeString()}/>
                                 })
                             }
                         </div>

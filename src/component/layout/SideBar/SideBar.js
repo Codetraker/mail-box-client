@@ -16,20 +16,22 @@ import AllInboxIcon from '@mui/icons-material/AllInbox';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { composerDisplayAction } from '../../../store/composerDisplaySlice';
+import { sidebarDisplayAction } from '../../../store/sidebarDisplaySlice';
 
 const SideBar = (props) => {
   const dispatch = useDispatch();
-  const [expand, setExpand] = useState(false);
-  let sidebarSize = props.sidebarView;
+  const sidebarSize = useSelector((state)=>state.sidebarVisible.sidebarIsVisible);
   
-  const expandHandler = () =>{
-    setExpand(!expand);
-  }
   const composeOpenHandler = () =>{
     dispatch(composerDisplayAction.openComposer());
+  };
+
+  const expand = useSelector((state)=>state.sidebarVisible.sidebarExpand);
+
+  const expandHandler = () =>{
+    dispatch(sidebarDisplayAction.changeSidebarExpand());
   };
 
   return (
@@ -37,20 +39,20 @@ const SideBar = (props) => {
         {sidebarSize && <Button startIcon={<CreateIcon/>} className='composeBtn' onClick={composeOpenHandler}>Compose</Button>}
         {!sidebarSize && <IconButton className='composeBtn_small' onClick={composeOpenHandler}><CreateIcon/></IconButton>}
         <div>
-          <SidebarOption title='Inbox' Icon={InboxIcon} number='14' active={true} sideExtent={sidebarSize}/>
-          <SidebarOption title='Starred' Icon={StarOutlineIcon} sideExtent={sidebarSize}/>
-          <SidebarOption title='Snoozed' Icon={AccessTimeIcon} sideExtent={sidebarSize} />
-          <SidebarOption title='Sent' Icon={SendIcon} sideExtent={sidebarSize}/>
-          <SidebarOption title='Drafts' Icon={InsertDriveFileOutlinedIcon} number='2' sideExtent={sidebarSize} />
-          {expand && <SidebarOption title='Important' Icon={LabelImportantIcon} sideExtent={sidebarSize} />}
-          {expand && <SidebarOption title='Chats' Icon={ChatOutlinedIcon} sideExtent={sidebarSize} />}
-          {expand && <SidebarOption title='Schedule' Icon={ScheduleSendOutlinedIcon} sideExtent={sidebarSize} />}
-          {expand && <SidebarOption title='All Mail' Icon={AllInboxIcon} sideExtent={sidebarSize} />}
-          {expand && <SidebarOption title='Spam' Icon={InfoOutlinedIcon} sideExtent={sidebarSize} />}
-          {expand && <SidebarOption title='Trash' Icon={DeleteIcon} sideExtent={sidebarSize} />}
+          <SidebarOption title='Inbox' Icon={InboxIcon} active={true}/>
+          <SidebarOption title='Starred' Icon={StarOutlineIcon}/>
+          <SidebarOption title='Snoozed' Icon={AccessTimeIcon} />
+          <SidebarOption title='Sent' Icon={SendIcon}/>
+          <SidebarOption title='Drafts' Icon={InsertDriveFileOutlinedIcon} />
+          {expand && <SidebarOption title='Important' Icon={LabelImportantIcon} />}
+          {expand && <SidebarOption title='Chats' Icon={ChatOutlinedIcon} />}
+          {expand && <SidebarOption title='Schedule' Icon={ScheduleSendOutlinedIcon} />}
+          {expand && <SidebarOption title='All Mail' Icon={AllInboxIcon} />}
+          {expand && <SidebarOption title='Spam' Icon={InfoOutlinedIcon} />}
+          {expand && <SidebarOption title='Trash' Icon={DeleteIcon} />}
           {
-          !expand ? (<SidebarOption title='More' Icon={ExpandMoreOutlinedIcon} onExpand={expandHandler} sideExtent={sidebarSize}/>)
-            :(<SidebarOption title='Less' Icon={ExpandLessIcon} onExpand={expandHandler} sideExtent={sidebarSize} />)
+          !expand ? (<SidebarOption title='More' Icon={ExpandMoreOutlinedIcon} onExpand={expandHandler} />)
+            :(<SidebarOption title='Less' Icon={ExpandLessIcon} onExpand={expandHandler} />)
           }
         </div>
     </div>

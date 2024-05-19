@@ -17,7 +17,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { composerDisplayAction } from '../../../store/composerDisplaySlice';
 import firebase from 'firebase/compat/app';
 import { db } from '../../../firebase';
@@ -26,6 +26,9 @@ const Compose = () => {
     const [to, setTo] = useState("");
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
+
+    const user = useSelector((state)=>state.userData.user );
+    console.log('This is user',user);
 
     const submitHandler = (e) =>{
         e.preventDefault();

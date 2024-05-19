@@ -61,7 +61,7 @@ const AuthComponent = () =>{
                 </Form>
                 <div className='d-flex justify-content-center mb-3'>
                   <NavLink to="/"><label className='link' onClick={changeHandler}>
-                    {haveAccount?"Already have an account? Login":"Have an account? Signup"}
+                    {haveAccount?"Already have an account? Login":"Don't have an account? Signup"}
                   </label></NavLink>
                 </div>
               </Card.Body>

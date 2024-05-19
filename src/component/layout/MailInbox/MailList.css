@@ -53,7 +53,10 @@
     /* box-shadow: 2px 2px 4px rgb(174, 212, 215); */
     box-shadow: 1px 1px 12px 0 rgba(0, 0, 0, 0.138);
     cursor: pointer;
-    background-color: #826fff14;
+    /* background-color: #826fff14; */
+    background-image:linear-gradient(to right, #826fff35 , #15f5b935);
     border-radius: 1vh;
 }
-
+.emailListBody:active{
+    background-image:linear-gradient(to right, #15f5b935, #826fff35);
+}

@@ -1,24 +1,34 @@
 .btnSubmit{
-    background-color: #836FFF;
-    font-weight: bold;
-    color: white;
-    border:1px solid #836FFF ;
-    padding: 1%;
-    width: 60%;
-    justify-self: center;
+    background-color: #836FFF !important;
+    font-weight: bold !important;
+    color: white !important;
+    border:1px solid #836FFF !important;
+    padding: 1% !important;
+    width: 60% !important;
+    justify-self: center !important;
     /* border-radius: 1vh; */
 }
 .btnSubmit:hover{
     /* background-color: #15F5BA; */
-    background-color: white;
-    color: #0a9c75;
-    border:1px solid #0a9c75 ;
+    background-color: white !important;
+    color: #0a9c75 !important;
+    border:1px solid #0a9c75 !important;
 }
-.link{
+/* .link{
     font-size: small;
     color: #0a9c75;
 }
 .link:hover{
     color: #836FFF;
     text-decoration: underline;
+} */
+
+.lginWithGoogle{
+    background-image:radial-gradient(circle at center, #15F5BA, #836FFF);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: bolder;
+    font-size: 2.5vw;
+    padding: 2%;
 }
