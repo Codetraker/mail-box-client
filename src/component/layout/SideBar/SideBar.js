@@ -19,6 +19,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { useDispatch, useSelector } from 'react-redux';
 import { composerDisplayAction } from '../../../store/composerDisplaySlice';
 import { sidebarDisplayAction } from '../../../store/sidebarDisplaySlice';
+import { useNavigate } from 'react-router-dom';
 
 const SideBar = (props) => {
   const dispatch = useDispatch();
@@ -34,15 +35,16 @@ const SideBar = (props) => {
     dispatch(sidebarDisplayAction.changeSidebarExpand());
   };
 
+
   return (
     <div className="sidebar"> 
         {sidebarSize && <Button startIcon={<CreateIcon/>} className='composeBtn' onClick={composeOpenHandler}>Compose</Button>}
         {!sidebarSize && <IconButton className='composeBtn_small' onClick={composeOpenHandler}><CreateIcon/></IconButton>}
         <div>
-          <SidebarOption title='Inbox' Icon={InboxIcon} active={true}/>
+          <SidebarOption title='Inbox' Icon={InboxIcon} active={props.inboxActive} moveTo="inbox"/>
           <SidebarOption title='Starred' Icon={StarOutlineIcon}/>
           <SidebarOption title='Snoozed' Icon={AccessTimeIcon} />
-          <SidebarOption title='Sent' Icon={SendIcon}/>
+          <SidebarOption title='Sent' Icon={SendIcon} active={props.sentActive} moveTo="sent"/>
           <SidebarOption title='Drafts' Icon={InsertDriveFileOutlinedIcon} />
           {expand && <SidebarOption title='Important' Icon={LabelImportantIcon} />}
           {expand && <SidebarOption title='Chats' Icon={ChatOutlinedIcon} />}

@@ -21,3 +21,15 @@
     background-color: transparent;
     flex:1;
 }
+.logoutBtn{
+    font-size: 1.8vh !important;
+    background-color: transparent !important;
+    border: 1px solid #836FFF !important;
+    color: #634cf8 !important;
+    font-weight: bold !important;
+}
+.logoutBtn:hover{
+    background-color: red !important;
+    color: white !important;
+    border: 1px solid white !important;
+}

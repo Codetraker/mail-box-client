@@ -3,20 +3,33 @@ import './App.css';
 import AuthPage from './pages/AuthPage';
 import Home from "./pages/Home";
 import Details from "./pages/Details";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { userSliceAction } from "./store/userSlice";
+import Sent from "./pages/Sent";
 
 function App() {
-  const user = useSelector((state)=>state.userData.user);
+  const user = useSelector((state) => state.userData.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      dispatch(userSliceAction.signIn(JSON.parse(userData)));
+    }
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Routes>
         {user ? (
-        <>
-          <Route exact path="/" element={<Home />}/>
-          <Route exact path="/detail" element={<Details />}/>
-        </>
+          <>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/detail" element={<Details />} />
+            <Route exact path="/sent" element={<Sent />} />
+          </>
         ) : (
-          <Route path="/" element={<AuthPage />}/>
+          <Route path="/" element={<AuthPage />} />
         )}
       </Routes>
     </BrowserRouter>

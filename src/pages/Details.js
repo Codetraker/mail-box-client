@@ -1,5 +1,5 @@
 import { Col } from "react-bootstrap";
-import { IconButton } from '@mui/material';
+import { Avatar, IconButton } from '@mui/material';
 import NavBar from "../component/layout/NavBar/NavBar";
 import SideBar from "../component/layout/SideBar/SideBar";
 import './Home.css';
@@ -23,18 +23,31 @@ import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import ReplyOutlinedIcon from '@mui/icons-material/ReplyOutlined';
 import { useNavigate } from "react-router-dom";
+import { db } from "../firebase";
 
 
-const Home = () =>{
+const Details = () =>{
     const isVisible = useSelector((state)=>state.composerVisible.composerIsVisible);
     const displaySidebar = useSelector((state) => state.sidebarVisible.sidebarIsVisible);
     const mailDataImport = useSelector((state) =>state.openMailData.mailData);
+    console.log(mailDataImport);
 
     const navigate = useNavigate();
     const backHandler = () =>{
         navigate('/');
     }
 
+    const deleteHandler = async () =>{
+        try{
+            await db.collection("emails").doc(mailDataImport.id).delete(); 
+            alert("Email deleted successfully");
+            backHandler();
+        }catch(error){
+            console.error("Error deleting email: ", error);
+            alert("Failed to delete email");
+        }
+    };
+    
     return (
         <>
             <NavBar />
@@ -49,7 +62,7 @@ const Home = () =>{
                             <IconButton><ArrowBackIcon onClick={backHandler}/></IconButton>
                             <IconButton><ArchiveOutlinedIcon /></IconButton>
                             <IconButton><ReportGmailerrorredOutlinedIcon /></IconButton>
-                            <IconButton><DeleteOutlinedIcon /></IconButton>
+                            <IconButton><DeleteOutlinedIcon onClick={deleteHandler}/></IconButton>
                             <IconButton><MarkEmailUnreadOutlinedIcon /></IconButton>
                             <IconButton><AccessTimeOutlinedIcon /></IconButton>
                             <IconButton><AddTaskOutlinedIcon /></IconButton>
@@ -71,9 +84,10 @@ const Home = () =>{
                         <div className="boxSenderInfo">
                             <div className="senderInfo">
                                 <div className="senderInfo_left">
-                                    <IconButton><AccountCircleIcon /></IconButton>
+                                    {/* <IconButton><AccountCircleIcon /></IconButton> */}
+                                    <Avatar src={mailDataImport.photoUrl} />
                                     <label>{mailDataImport.name}</label>
-                                    <span>{mailDataImport.name}</span>
+                                    <span>{mailDataImport.from}</span>
                                 </div>
                                 <div className="senderInfo_right">
                                     <span>{mailDataImport.time}</span>
@@ -84,7 +98,7 @@ const Home = () =>{
                                 </div>
                             </div>
                             <div className="detailbody">
-                                <p>T{mailDataImport.message}</p>
+                                <p>{mailDataImport.message}</p>
                             </div>
                         </div>
                     </div>
@@ -96,4 +110,4 @@ const Home = () =>{
         </>
     );
 }
-export default Home;
+export default Details;

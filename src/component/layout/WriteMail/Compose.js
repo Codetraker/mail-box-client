@@ -27,10 +27,10 @@ const Compose = () => {
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
 
-    const user = useSelector((state)=>state.userData.user );
-    console.log('This is user',user);
+    const userDetail = useSelector((state)=>state.userData.user );
+    console.log('This is user',userDetail);
 
-    const submitHandler = (e) =>{
+    const submitHandler = async (e) => {
         e.preventDefault();
         if(to===""){
             return alert("You can't empty the To section.")
@@ -41,20 +41,28 @@ const Compose = () => {
         if(message===""){
             return alert("You can't empty the Message section.")
         }
-        db.collection("emails").add({
-            to:to,
-            subject:subject,
-            message:message,
-            timestamp:firebase.firestore.FieldValue.serverTimestamp()
-        });
-
-        alert("Email sent successfully");
-        setTo("");
-        setSubject("");
-        setMessage("");
-        dispatch(composerDisplayAction.closeComposer());
-        setMaximize(false);
-        setMinimize(false);
+        try{
+            await db.collection("emails").add({
+                to:to,
+                from : userDetail.email,
+                displayName : userDetail.displayName,
+                photoUrl : userDetail.photoUrl,
+                subject:subject,
+                message:message,
+                markAsRead : false,
+                timestamp:firebase.firestore.FieldValue.serverTimestamp()
+            });
+            alert("Email sent successfully");
+            setTo("");
+            setSubject("");
+            setMessage("");
+            dispatch(composerDisplayAction.closeComposer());
+            setMaximize(false);
+            setMinimize(false);
+        }catch (error){
+            console.error("Error sending email: ", error);
+            alert("Failed to send email. Please try again later.");
+        }
     };
 
     const toChangeHandler = (e) =>{

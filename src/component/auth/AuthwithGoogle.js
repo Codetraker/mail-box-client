@@ -1,4 +1,4 @@
-import { Button, Col, Row, Container, Card, FloatingLabel, Form, NavLink } from 'react-bootstrap';
+import { Button, Col, Row, Container, Card } from 'react-bootstrap';
 import './Auth.css';
 import { auth, provider } from '../../firebase';
 import { useDispatch } from 'react-redux';
@@ -6,17 +6,33 @@ import { userSliceAction } from '../../store/userSlice';
 
 const AuthwithGoogle = () => {
   const dispatch = useDispatch();
-  const loginHandler = () => {
-    auth.signInWithPopup(provider).then((user)=>{
-      console.log("User Data =",user);
+
+  const loginHandler = async () => {
+    try {
+      const userCredential = await auth.signInWithPopup(provider);
+      const userProfile = userCredential.additionalUserInfo.profile;
+
+      // console.log("User Data =", userProfile);
+      // console.log(userProfile.name);
+      // console.log(userProfile.picture);
+      // console.log(userProfile.email);
+
       dispatch(userSliceAction.signIn({
-        displayName: user.displayName,
-        photoUrl: user.photoURL,
-        email : user.email
-      }))
-    }).catch(error=>{
-      alert(error);
-    })
+        displayName: userProfile.name,
+        photoUrl: userProfile.picture,
+        email: userProfile.email
+      }));
+
+      localStorage.setItem('userData', JSON.stringify({
+        displayName: userProfile.name,
+        photoUrl: userProfile.picture,
+        email: userProfile.email
+      }));
+
+    } catch (error) {
+      alert(error.message);
+    }
+
   };
   return (
     <>
@@ -43,4 +59,5 @@ const AuthwithGoogle = () => {
   )
 }
 
-export default AuthwithGoogle
+export default AuthwithGoogle;
+

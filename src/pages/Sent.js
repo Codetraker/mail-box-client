@@ -1,3 +1,4 @@
+import './Sent.css';
 import { Col } from "react-bootstrap";
 import NavBar from "../component/layout/NavBar/NavBar";
 import SideBar from "../component/layout/SideBar/SideBar";
@@ -13,7 +14,7 @@ import Compose from "../component/layout/WriteMail/Compose";
 import { useSelector } from "react-redux";
 import { db } from "../firebase";
 
-const Home = () =>{
+const Sent = () => {
     const isVisible = useSelector((state)=>state.composerVisible.composerIsVisible);
     const displaySidebar = useSelector((state) => state.sidebarVisible.sidebarIsVisible);
 
@@ -36,14 +37,13 @@ const Home = () =>{
             minute: '2-digit'
         });
     }
-    
-    return (
-        <>
+  return (
+    <>
             <NavBar />
             
             <div className={displaySidebar?"layout_with_slidebar":"layout_without_slidebar"}>
                 <Col className="left_layout">
-                    <SideBar inboxActive={true}/>
+                    <SideBar sentActive={true}/>
                 </Col>
                 <Col className="middle_layout">
                     <div className="mailAreaTopBar">
@@ -80,6 +80,7 @@ const Home = () =>{
 
             {isVisible && <Compose />}
         </>
-    );
+  )
 }
-export default Home;
+
+export default Sent

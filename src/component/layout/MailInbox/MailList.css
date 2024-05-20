@@ -5,6 +5,9 @@
     align-items: center;
     padding-left: .3vw;
 }
+.emailListBodyUnRead span{
+    font-weight: bold;
+}
 .emailListBody svg{
     font-size: 1.2vw;
 }

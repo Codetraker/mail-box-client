@@ -10,13 +10,21 @@ import AppsIcon from '@mui/icons-material/Apps';
 import { IconButton } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { sidebarDisplayAction } from '../../../store/sidebarDisplaySlice';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { userSliceAction } from '../../../store/userSlice';
+import { Navigate } from 'react-router-dom';
+// import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 
 const NavBar = (props) =>{
     const dispatch = useDispatch();
     const sidebarDisplayHandler = () =>{
         dispatch(sidebarDisplayAction.changeSidebarDisplay());
+    }
+    const logoutHandler = () =>{
+        dispatch(userSliceAction.signOut());
+        localStorage.removeItem('userData');
+
+        return <Navigate to='/' />
     }
     
     return (
@@ -43,7 +51,8 @@ const NavBar = (props) =>{
                                     <IconButton><HelpOutlineIcon style={{color:'white'}}/></IconButton>
                                     <IconButton><SettingsIcon style={{color:'white'}}/></IconButton>
                                     <IconButton><AppsIcon style={{color:'white'}}/></IconButton>
-                                    <IconButton><AccountCircleOutlinedIcon style={{color:'white'}}/></IconButton>
+                                    {/* <IconButton><AccountCircleOutlinedIcon style={{color:'white'}}/></IconButton> */}
+                                    <Button className='logoutBtn' onClick={logoutHandler}>LogOut</Button>
                                 </div>
                             </Col>
                         </Row>
